@@ -18,14 +18,25 @@ SELECT PostalCode FROM Person.Address WHERE PostalCode LIKE '98%';
 /*Ejercicio 3: Contar cuántos productos tienen un tamaño específico
 Instrucción: Cuenta cuántos productos tienen un tamaño específico (por ejemplo, "M") en la tabla Production.Product.*/
 
+SELECT COUNT(*) FROM Production.Product WHERE Size = 'M';
+---------------------------------------------------------------------------------------------------
 /*Ejercicio 4: Obtener la venta total más alta
 Instrucción: Encuentra la venta más alta (por monto total) registrada en la tabla Sales.SalesOrderHeader.*/
+SELECT TOP 1 * FROM Sales.SalesOrderHeader ORDER BY TotalDue DESC;
+----------------------------------------------------------------------------------------------------
 
 /*Ejercicio 5: Contar cuántos productos tienen stock
 Instrucción: Muestra cuántos productos tienen un StockLevel mayor a 0 en la tabla Production.Product.*/
+SELECT COUNT(*) FROM Production.Product WHERE SafetyStockLevel > 0; 
+----------------------------------------------------------------------------------------------------
 
 /*Ejercicio 6: Productos más vendidos
 Instrucción: Obtén los 5 productos más vendidos según la cantidad.*/
+SELECT TOP 5 ProductID, SUM(OrderQty) AS TotalSold
+FROM Sales.SalesOrderDetail
+GROUP BY ProductID
+ORDER BY TotalSold DESC;
+------------------------------------------------------------------------------------------------------
 
 /*Pista: Usa las tablas Sales.SalesOrderDetail (detalles de las órdenes de venta) y Production.Product (productos).*/
 
