@@ -10,7 +10,7 @@ SELECT * FROM Person.Address
 
 --Ejercicio 3
 SELECT COUNT(*) FROM Production.Product
-    WHERE Size 'S';
+    WHERE Size 'M';
 
 --Ejercicio 4
 SELECT MAX(TotalDue) FROM Sales.SalesOrderHeader;
@@ -19,19 +19,16 @@ SELECT MAX(TotalDue) FROM Sales.SalesOrderHeader;
 SELECT * FROM Production.Product  WHERE SafetyStockLevel>0;
 
 --Ejercicio 6
-SELECT TOP 5 p.Name AS Producto, SUM(sod.OrderQty) AS [Cantidad Vendida]
-FROM Sales.SalesOrderDetail sod
-JOIN Production.Product p ON sod.ProductID = p.ProductID
-GROUP BY p.Name
-ORDER BY [Cantidad Vendida] DESC;
+SELECT TOP 5 p.Name AS Producto, SUM(sod.OrderQty) AS [Cantidad Vendida] FROM Sales.SalesOrderDetail sod
+    JOIN Production.Product p ON sod.ProductID = p.ProductID
+    GROUP BY p.Name
+    ORDER BY [Cantidad Vendida] DESC;
 
 --Ejercicio 7
 SELECT 
-    c.BusinessEntityID AS [ID Cliente], 
-    CONCAT(c.FirstName, ' ', c.LastName) AS Cliente, 
-    SUM(soh.TotalDue) AS [Total Ventas]
-FROM Sales.SalesOrderHeader soh
-JOIN Sales.Customer sc ON soh.CustomerID = sc.CustomerID
-JOIN Person.Person c ON sc.PersonID = c.BusinessEntityID
-GROUP BY c.BusinessEntityID, c.FirstName, c.LastName
-ORDER BY [Total Ventas] DESC;
+    c.BusinessEntityID AS [ID Cliente], CONCAT(c.FirstName, ' ', c.LastName) AS Cliente, SUM(soh.TotalDue) AS [Total Ventas]
+    FROM Sales.SalesOrderHeader soh
+        JOIN Sales.Customer sc ON soh.CustomerID = sc.CustomerID
+        JOIN Person.Person c ON sc.PersonID = c.BusinessEntityID
+        GROUP BY c.BusinessEntityID, c.FirstName, c.LastName
+        ORDER BY [Total Ventas]DESC;
