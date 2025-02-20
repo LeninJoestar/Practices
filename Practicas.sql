@@ -43,3 +43,5 @@ SELECT soh.CustomerID, SUM(soh.TotalDue) AS TotalVentas
 FROM Sales.SalesOrderHeader soh
 GROUP BY soh.CustomerID
 ORDER BY TotalVentas DESC;
+
+// Revision test
