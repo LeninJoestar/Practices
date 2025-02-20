@@ -1,4 +1,4 @@
-'EZEQUIEL SANDOVAL MARTINEZ 8C'
+--EZEQUIEL SANDOVAL MARTINEZ 8C
 --Ejercicio 1: Obtener los productos con un precio mayor a 1000
 ------------------------------------------------
 SELECT Name, ListPrice 
@@ -44,4 +44,3 @@ FROM Sales.SalesOrderHeader soh
 GROUP BY soh.CustomerID
 ORDER BY TotalVentas DESC;
 
-// Revision test
