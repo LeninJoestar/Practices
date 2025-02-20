@@ -3,7 +3,7 @@ Alumno:Rocio Arely Mata Gamboa
        Eldi Balderrama Velasquez 
 Grado: 8°C */
 
-USE AdventureWorks2022;
+USE AdventureWorks2022
 GO
 
 ---EJERCICIO 1---
