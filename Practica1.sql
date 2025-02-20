@@ -1,7 +1,4 @@
-/*Sistema Gestor De Base de Datos
-Alumno:Rocio Arely Mata Gamboa 
-       Eldi Balderrama Velasquez 
-Grado: 8°C */
+
 
 USE AdventureWorks2022;
 GO
