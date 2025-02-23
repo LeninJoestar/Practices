@@ -32,3 +32,40 @@ Instrucción: Cuenta cuántos productos tienen un tamaño específico (por ejemp
 
         /*Para LB*/
         SELECT COUNT(WeightUnitMeasureCode)  FROM [Production].[Product] WHERE WeightUnitMeasureCode = 'LB'
+
+
+/*EJERCICIOS REALIZADOS EL DÍA 20 DE FEBRERO DEL 2025*/
+
+/*Ejercicio 4: Obtener la venta total más alta
+Instrucción: Encuentra la venta más alta (por monto total) registrada en la tabla Sales.SalesOrderHeader.*/
+
+        SELECT MAX(TotalDue) FROM [Sales].[SalesOrderHeader]
+
+/*Ejercicio 5: Contar cuántos productos tienen stock
+Instrucción: Muestra cuántos productos tienen un StockLevel mayor a 0 en la tabla Production.Product.*/
+
+        SELECT COUNT(*) AS Products FROM [Production].[Product] WHERE SafetyStockLevel > 0
+
+/*Ejercicio 6: Productos más vendidos
+Instrucción: Obtén los 5 productos más vendidos según la cantidad.
+
+Pista: Usa las tablas Sales.SalesOrderDetail (detalles de las órdenes de venta) y Production.Product (productos).*/
+
+        SELECT TOP 5 p.ProductID, p.Name AS Name, SUM(sod.OrderQty) AS TotalQuantitySold
+	FROM Sales.SalesOrderDetail sod
+	JOIN Production.Product p 
+        ON sod.ProductID = p.ProductID
+	GROUP BY p.ProductID, p.Name
+	ORDER BY TotalQuantitySold DESC
+
+/*Ejercicio 7: Obtener el total de ventas por cada cliente
+Instrucción: Calcula el total de ventas (por cliente).
+
+Pista: Usa las tablas Sales.SalesOrderHeader (encabezados de órdenes de venta) y Sales.Customer (clientes).*/
+
+        SELECT c.CustomerID, SUM(soh.TotalDue) AS TotalSales
+        FROM Sales.SalesOrderHeader soh
+        JOIN Sales.Customer c 
+        ON soh.CustomerID = c.CustomerID
+        GROUP BY c.CustomerID
+        ORDER BY TotalSales DESC
