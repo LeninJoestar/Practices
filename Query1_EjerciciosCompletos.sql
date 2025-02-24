@@ -60,3 +60,4 @@ SELECT sc.CustomerID AS Cliente, s.TotalDue AS VentasHechas FROM Sales.SalesOrde
 	ORDER BY sc.CustomerID ASC;
 
 /* Aqui termina el trabajo de hoy, ocupo dinero y chamba, asi que ahi nos vemos */
+/* Si /*
