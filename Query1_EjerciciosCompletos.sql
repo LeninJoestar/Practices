@@ -58,3 +58,5 @@ SELECT * FROM Sales.Customer
 SELECT sc.CustomerID AS Cliente, s.TotalDue AS VentasHechas FROM Sales.SalesOrderHeader s WITH(NOLOCK)
 	INNER JOIN Sales.Customer sc ON s.CustomerID = sc.CustomerID
 	ORDER BY sc.CustomerID ASC;
+
+/* Aqui termina el trabajo de hoy, ocupo dinero y chamba, asi que ahi nos vemos */
