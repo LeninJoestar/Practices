@@ -37,3 +37,5 @@ FROM Sales.SalesOrderHeader soh
 JOIN Sales.Customer c ON soh.CustomerID = c.CustomerID  
 GROUP BY c.CustomerID  
 ORDER BY TotalVentas DESC;
+
+--
